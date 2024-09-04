@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 9000;
 
 const getLocations = (req,res) => {
-	pool.query('select * from location where category_id in (2,3)', (error, locations) => {
+	pool.query('select l.location_id, l.name location_name, c.name category_name from location l inner join category c on c.category_id = l.category_id where c.category_id in (2,3)', (error, locations) => {
 		if (error){
 			throw error
 		}

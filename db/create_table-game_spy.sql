@@ -3,6 +3,7 @@ CREATE TABLE game_spy
     game_spy_id SERIAL NOT NULL,
     game_id int,
     player_id int,
+    create_date date default current_timestamp,
     PRIMARY KEY (game_spy_id),
 	CONSTRAINT fk_game
 		FOREIGN KEY(game_id) 
